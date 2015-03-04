@@ -11,17 +11,11 @@ def main(argv):
 		tophz=POINT.find("TOP_HZ").text
 		f0end=POINT.find("F0_END").text
 		f0start=POINT.find("F0_START").text
-		if bottomhz <= f0end <= tophz:
-			pass
-		else:
-			end=POINT.findall("F0_END")
-			for F0_END in end:
-				POINT.remove(F0_END)
-		if bottomhz<= f0start <=tophz:
-			pass
-		else:
-			start=POINT.findall("F0_START")
-			for F0_START in start:
-				POINT.remove(F0_START)
+		BOTTOM_HZ=float(bottomhz)
+		TOP_HZ=float(tophz)
+		F0_END=float(f0end)
+		F0_START=float(f0start)
+		if F0_END < BOTTOM_HZ or F0_END >TOP_HZ or F0_START< BOTTOM_HZ or F0_START >TOP_HZ:
+			root.remove(POINT)
 	tree.write(argv[2])
 main(sys.argv)
