@@ -10,12 +10,8 @@ def main():
 			line[3]=line[3].replace('\n',',')
 			bloed=line[2].split(',')
 			sterven=line[3].split(',')
-			#goedelanden=[Landen(line[0],line[1]) for i in bloed if i in sterven] als ik dit probeer krijg ik lege lijsten terug, wat doe ik verkeerd?
-			for i in bloed:
-				if i in sterven:
-					goedelanden=Landen(line[0],line[1])
-					print(goedelanden)
-		
+			goedelanden.append[Landen(line[0],line[1]) for i in bloed if i in sterven]
+			print([line[0],line[1] for i in bloed if i in sterven]) 
 		
 		json_data.close()
 		
